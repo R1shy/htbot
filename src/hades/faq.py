@@ -6,7 +6,7 @@ message = """
 yes, we are totally fine with gender bending
 
 # When do Auditions close?
-<t:1791169200:F>
+<t:1791172740:f>
 
 # Who is running this?
 The management team of this production is in no particular order:
@@ -16,7 +16,8 @@ The management team of this production is in no particular order:
 No, unfortunately the crew for this production has already been chosen
 
 # How do I audition?
-in https://discord.com/channels/1531513098551431228/1532163389722202294 read https://discord.com/channels/1531513098551431228/1534795482008780901 and https://discord.com/channels/1531513098551431228/1534795482008780901 first
+
+in https://discord.com/channels/1531513098551431228/1532163389722202294 read https://discord.com/channels/1531513098551431228/1534795482008780901 and https://discord.com/channels/1531513098551431228/1531517330817945760
 
 """
 
