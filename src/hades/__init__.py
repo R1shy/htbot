@@ -6,8 +6,8 @@ from discord.ext.commands import Bot
 from dotenv import load_dotenv, find_dotenv
 from csv import writer
 
-from scrapymcscrapeface.audcount import audcount
-from scrapymcscrapeface.scrapejoin import sj
+from hades.audcount import audcount
+from hades.scrapejoin import sj
 
 load_dotenv(find_dotenv()) 
 intents = Intents.default()
