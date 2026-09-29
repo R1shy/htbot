@@ -18,7 +18,6 @@ No, unfortunately the crew for this production has already been chosen
 # How do I audition?
 in https://discord.com/channels/1531513098551431228/1532163389722202294 read https://discord.com/channels/1531513098551431228/1534795482008780901 and https://discord.com/channels/1531513098551431228/1534795482008780901 first
 
-<Add performance / proshot info when released to public>
 """
 
 async def faq(interaction: Interaction):
