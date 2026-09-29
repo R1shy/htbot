@@ -1,0 +1,20 @@
+[project]
+name = "scrapymcscrapeface"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = 'Emma "R1shy" Kadlecek', email = "kadlecekemma@gmail.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "discord>=2.3.2",
+    "dotenv>=0.9.9",
+]
+
+[project.scripts]
+scrapymcscrapeface = "scrapymcscrapeface:main"
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
