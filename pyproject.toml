@@ -1,7 +1,7 @@
 [project]
-name = "scrapymcscrapeface"
-version = "0.1.0"
-description = "Add your description here"
+name = "hades"
+version = "1.0.0"
+description = "htmc discord bot"
 readme = "README.md"
 authors = [
     { name = 'Emma "R1shy" Kadlecek', email = "kadlecekemma@gmail.com" }
@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-scrapymcscrapeface = "scrapymcscrapeface:main"
+hades = "hades:main"
 
 [build-system]
 requires = ["uv_build>=0.12.19,<0.13.0"]
