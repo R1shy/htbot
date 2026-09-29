@@ -6,10 +6,11 @@ readme = "README.md"
 authors = [
     { name = 'Emma "R1shy" Kadlecek', email = "kadlecekemma@gmail.com" }
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.14"
 dependencies = [
     "discord>=2.3.2",
     "dotenv>=0.9.9",
+    "pathlib>=1.0.1",
 ]
 
 [project.scripts]
