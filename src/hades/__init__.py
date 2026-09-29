@@ -8,6 +8,8 @@ from csv import writer
 
 from hades.audcount import audcount
 from hades.scrapejoin import sj
+from hades.faq import faq
+from hades.evilfaq import evilfaq
 
 load_dotenv(find_dotenv()) 
 intents = Intents.default()
@@ -39,6 +41,14 @@ async def scrape_joins(interaction: Interaction):
 @bot.tree.command(name="numberofauditions", description="get the number of auditions")
 async def ac(interaction: Interaction):
     await audcount(interaction)
+
+@bot.tree.command(name="faq", description="Frequently Asked Questions")
+async def faaq(interaction: Interaction):
+    await faq(interaction)
+
+@bot.tree.command(name="evilfaq", description="Evil Frequently Asked Questions")
+async def efaq(interaction: Interaction):
+    await evilfaq(interaction)
 
 def main() -> None:
     x = os.getenv("DISCTOKEN")

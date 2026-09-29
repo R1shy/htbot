@@ -8,6 +8,9 @@ yes, we are totally fine with gender bending
 # When do Auditions close?
 <t:1791169200:F>
 
+# Who is this plasmax guy I keep hearing about?
+THE GOAT
+
 # Who is running this?
 The management team of this production is in no particular order:
     Katze, Lime, R1shy, Vecotr, RKMaria, Rex, Cloversghost, Nat, Ume
@@ -21,5 +24,5 @@ in https://discord.com/channels/1531513098551431228/1532163389722202294 read htt
 <Add performance / proshot info when released to public>
 """
 
-async def faq(interaction: Interaction):
+async def evilfaq(interaction: Interaction):
     await interaction.response.send_message(message)
