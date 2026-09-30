@@ -15,6 +15,8 @@ async def audcount(interaction: Interaction):
             threads = channel.threads
             try:
                 if not interaction.response.is_done():
-                    await interaction.response.send_message(f"{len(threads)} auditions so far!")
+                    await interaction.response.send_message(
+                        f"{len(threads)} auditions so far!"
+                    )
             except Exception as e:
-                print(f"err2: {str(e)}")
+                print(f"err2: {e!s}")

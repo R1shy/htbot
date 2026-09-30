@@ -1,3 +1,4 @@
+# pyright: ignore[]
 import csv
 import os
 from datetime import datetime
@@ -6,6 +7,7 @@ from aiofiles import open
 from discord import Interaction, TextChannel
 
 path = os.getenv("FILESGENPATH") or os.getenv("HOME") or ""
+
 
 async def sj(interaction: Interaction):
     g = interaction.guild
@@ -24,15 +26,22 @@ async def sj(interaction: Interaction):
 
     async with open(path + "/" + name, "x", newline="") as f:
         w = csv.writer(f, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        w.writerow(["created_at_day_of_year", "created_at_24_hour_time", "created_at_epoch_seconds", "message_author"])
+        w.writerow(
+            [
+                "created_at_day_of_year",
+                "created_at_24_hour_time",
+                "created_at_epoch_seconds",
+                "message_author",
+            ]
+        )
 
-        seen = set()
+        seen: set[str] = set()
         async for msg in c.history(limit=None, oldest_first=True):
             if msg.content == "" and msg.author.name not in seen:
                 t: datetime = msg.created_at
                 day = t.strftime("%m-%d")
                 hour = t.strftime("%H:%M")
                 d = [day, hour, int(msg.created_at.timestamp()), msg.author.name]
-                seen.add(msg.author.name)
+                seen.add(msg.author.name)  # pyright: ignore[reportUnknownMemberType]
                 w.writerow(d)
     await interaction.followup.send(f"Successfully created {name}")

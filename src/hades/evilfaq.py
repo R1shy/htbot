@@ -23,5 +23,6 @@ in https://discord.com/channels/1531513098551431228/1532163389722202294 read htt
 
 """
 
+
 async def evilfaq(interaction: Interaction):
     await interaction.response.send_message(message)

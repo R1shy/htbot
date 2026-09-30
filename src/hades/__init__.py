@@ -1,12 +1,8 @@
-import csv
 import logging
 import os
-from csv import writer
-from datetime import datetime
-from pathlib import Path
 
-from discord import Intents, Interaction, Message, Object, TextChannel
-from discord.ext.commands import Bot
+from discord import Intents, Interaction, Message, Object
+from discord.ext.commands import Bot  # pyright: ignore
 
 from hades.audcount import audcount
 from hades.evilfaq import evilfaq
@@ -24,6 +20,8 @@ intents.members = True
 bot = Bot(command_prefix="?", intents=intents)
 global botuser
 botuser = bot.user
+
+
 @bot.event
 async def on_ready():
     gcursor.execute("""
@@ -44,38 +42,48 @@ async def on_ready():
     except Exception as e:
         logger.error(f"Failed to sync commands: {e}")
 
+
 @bot.tree.command(name="ping", description="Responds with a pong!")
 async def meow(interaction: Interaction):
     await interaction.response.send_message("pong")
+
 
 @bot.tree.command(name="scrapejoins", description="scrape joins into a csv")
 async def scrape_joins(interaction: Interaction):
     await sj(interaction)
 
+
 @bot.tree.command(name="numberofauditions", description="get the number of auditions")
 async def ac(interaction: Interaction):
     await audcount(interaction)
+
 
 @bot.tree.command(name="faq", description="Frequently Asked Questions")
 async def faaq(interaction: Interaction):
     await faq(interaction)
 
+
 @bot.tree.command(name="evilfaq", description="Evil Frequently Asked Questions")
 async def efaq(interaction: Interaction):
     await evilfaq(interaction)
+
 
 @bot.tree.command(name="getlevel", description="Get your level")
 async def getlevel(interaction: Interaction):
     await gl(interaction)
 
+
 @bot.event
 async def on_message(message: Message):
     await msghandler(bot.user, message)
 
+
 def main() -> None:
     files = os.getenv("FILESGENPATH") or "NoFiles"
     if files == "NoFiles":
-        logging.getLogger("discord").warning("FILESEGENPATH not set, falling back to $HOME")
+        logging.getLogger("discord").warning(
+            "FILESEGENPATH not set, falling back to $HOME"
+        )
         files = os.getenv("HOME") or "NoHome"
         if files == "NoHome":
             raise RuntimeError("FILESGENPATH and $HOME are not set!")
@@ -85,6 +93,7 @@ def main() -> None:
         bot.run(x)
     else:
         raise RuntimeError("DISCTOKEN not set!")
+
 
 if __name__ == "__main__":
     main()
