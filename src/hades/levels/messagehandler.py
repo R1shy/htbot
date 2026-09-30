@@ -1,8 +1,10 @@
 import logging
-
-from discord import ClientUser, Member, Message, User
-from hades.globals import gcursor
 from random import randint
+
+from discord import ClientUser, Message
+
+from hades.globals import gcursor
+
 
 async def msghandler(user: ClientUser | None, message: Message):
     if user is None:

@@ -2,8 +2,9 @@
 
 import logging
 
-from hades.globals import gcursor
 from discord import Interaction
+
+from hades.globals import gcursor
 
 
 async def gl(interaction: Interaction):

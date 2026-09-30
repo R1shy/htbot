@@ -1,9 +1,10 @@
 import os
-from sqlite3 import Cursor, connect
 from pathlib import Path
-from dotenv import load_dotenv, find_dotenv
+from sqlite3 import connect
 
-load_dotenv(find_dotenv()) 
+from dotenv import find_dotenv, load_dotenv
+
+load_dotenv(find_dotenv())
 pathToDB = os.getenv("LEVELSDBFILEPATH") or "NoDB"
 
 gcursor = None

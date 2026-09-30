@@ -1,18 +1,20 @@
 import csv
-from datetime import datetime
 import logging
 import os
-from discord import Intents, Interaction, Message, Object, TextChannel
-from discord.ext.commands import Bot                                                                                                                                                                  
 from csv import writer
+from datetime import datetime
 from pathlib import Path
+
+from discord import Intents, Interaction, Message, Object, TextChannel
+from discord.ext.commands import Bot
+
 from hades.audcount import audcount
-from hades.scrapejoin import sj
-from hades.faq import faq
 from hades.evilfaq import evilfaq
+from hades.faq import faq
 from hades.globals import gcursor
 from hades.levels.getlevel import gl
 from hades.levels.messagehandler import msghandler
+from hades.scrapejoin import sj
 
 intents = Intents.default()
 intents.message_content = True
@@ -77,7 +79,7 @@ def main() -> None:
         files = os.getenv("HOME") or "NoHome"
         if files == "NoHome":
             raise RuntimeError("FILESGENPATH and $HOME are not set!")
-    
+
     x = os.getenv("DISCTOKEN")
     if x is not None:
         bot.run(x)
