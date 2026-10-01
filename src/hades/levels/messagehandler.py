@@ -49,18 +49,13 @@ async def msghandler(user: ClientUser | None, message: Message):
             if isinstance(res[0], int):
                 exp = int((res[0] // 500) * 500)
                 lvl = int((exp / 500) * 5)
-                print(f"current level: {lvl}")
                 if lvl < 1:
-                    print("lvl < 1")
                     return
                 else:
                     for r in roles:
                         if r.name == f"Level {lvl - 5}":
-                            print(f"trying to add Level {lvl - 5}")
                             await message.author.remove_roles(r)
                     g = message.guild
                     if g is not None:
                         rx = globa.getrole(lvl, g)
                         await message.author.add_roles(rx)
-                        x = message.author.roles
-                        print(f"new roles: {x}")

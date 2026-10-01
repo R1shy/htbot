@@ -21,7 +21,6 @@ async def sj(interaction: Interaction):
     c = g.get_channel(channel_id)
 
     if c is None or not isinstance(c, TextChannel):
-        print(type(c))
         return await interaction.followup.send("Target text channel not found.")
 
     async with open(path + "/" + name, "x", newline="") as f:

@@ -23,7 +23,6 @@ async def ge(interaction: Interaction, addamount: int, user: Member):
             u: Member = interaction.user
             roles = [r.id for r in u.roles]
             if modid not in roles and adminid not in roles:
-                print(u.roles)
                 await interaction.followup.send("You don't have perms for this!")
             else:
                 gcursor.execute(
