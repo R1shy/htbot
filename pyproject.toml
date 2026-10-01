@@ -22,8 +22,9 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "pyright>=1.1.350", 
+    "pyright>=1.1.350",
     "ruff>=0.16.9",
+    "sqv>=0.5.0",
 ]
 
 [tool.ruff]

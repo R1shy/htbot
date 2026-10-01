@@ -1,7 +1,7 @@
 import logging
 import os
 
-from discord import Intents, Interaction, Message, Object
+from discord import Intents, Interaction, Member, Message, Object
 from discord.ext.commands import Bot  # pyright: ignore
 
 from hades.audcount import audcount
@@ -9,14 +9,11 @@ from hades.evilfaq import evilfaq
 from hades.faq import faq
 from hades.globals import gcursor
 from hades.levels.getlevel import gl
+from hades.levels.givexp import ge
 from hades.levels.messagehandler import msghandler
 from hades.scrapejoin import sj
 
-intents = Intents.default()
-intents.message_content = True
-intents.messages = True
-intents.members = True
-
+intents = Intents.all()
 bot = Bot(command_prefix="?", intents=intents)
 global botuser
 botuser = bot.user
@@ -34,6 +31,7 @@ async def on_ready():
     logger = logging.getLogger("discord")
     logger.setLevel(logging.WARNING)
     logger.info(f"Logged in as {bot.user}")
+
     try:
         z = os.getenv("SERVERID") or ""
         bot.tree.copy_global_to(guild=Object(id=z))
@@ -71,6 +69,11 @@ async def efaq(interaction: Interaction):
 @bot.tree.command(name="getlevel", description="Get your level")
 async def getlevel(interaction: Interaction):
     await gl(interaction)
+
+
+@bot.tree.command(name="giveexp", description="Give someone exp, staff ONLY")
+async def givexp(interaction: Interaction, addamount: int, member: Member):
+    await ge(interaction, addamount, member)
 
 
 @bot.event

@@ -26,7 +26,7 @@ async def sj(interaction: Interaction):
 
     async with open(path + "/" + name, "x", newline="") as f:
         w = csv.writer(f, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        w.writerow(
+        await w.writerow(
             [
                 "created_at_day_of_year",
                 "created_at_24_hour_time",
@@ -43,5 +43,5 @@ async def sj(interaction: Interaction):
                 hour = t.strftime("%H:%M")
                 d = [day, hour, int(msg.created_at.timestamp()), msg.author.name]
                 seen.add(msg.author.name)  # pyright: ignore[reportUnknownMemberType]
-                w.writerow(d)
+                await w.writerow(d)
     await interaction.followup.send(f"Successfully created {name}")

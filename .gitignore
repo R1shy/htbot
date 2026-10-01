@@ -4,3 +4,4 @@ __pycache__/
 .env
 start.sh
 files/
+.ruff_cache
