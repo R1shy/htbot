@@ -8,7 +8,7 @@ check: format-check lint type-check
 fix: format lint-fix
 
 run:
-    uv run hades
+    watchexec -e py -r uv run hades
 
 format-check:
     uv run ruff format --check .

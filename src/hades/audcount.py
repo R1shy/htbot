@@ -1,6 +1,6 @@
 import os
 
-from discord import Interaction
+from discord import Interaction 
 from discord.channel import ForumChannel
 
 
@@ -13,10 +13,12 @@ async def audcount(interaction: Interaction):
         channel = await guild.fetch_channel(int(audchannelid))
         if isinstance(channel, ForumChannel):
             threads = channel.threads
+            otherthreads = []
+            async for t in channel.archived_threads(limit=None):
+                otherthreads.append(t) # pyright: ignore[reportUnknownMemberType]
             try:
                 if not interaction.response.is_done():
                     await interaction.response.send_message(
-                        f"{len(threads)} auditions so far!"
-                    )
+                        f"{len(threads) + len(otherthreads)} auditions so far!") # pyright: ignore[reportUnknownArgumentType]
             except Exception as e:
                 print(f"err2: {e!s}")
