@@ -10,6 +10,7 @@ from hades.faq import faq
 from hades.globals import gcursor
 from hades.levels.getlevel import gl
 from hades.levels.givexp import ge
+from hades.levels.leaderboard import leaderboard
 from hades.levels.messagehandler import msghandler
 from hades.scrapejoin import sj
 
@@ -75,6 +76,9 @@ async def getlevel(interaction: Interaction):
 async def givexp(interaction: Interaction, addamount: int, member: Member):
     await ge(interaction, addamount, member)
 
+@bot.tree.command(name="leaderboard", description="Leaderboard of levels")
+async def lb(interaction: Interaction):
+    await leaderboard(interaction)
 
 @bot.event
 async def on_message(message: Message):
