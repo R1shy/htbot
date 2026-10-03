@@ -76,9 +76,11 @@ async def getlevel(interaction: Interaction):
 async def givexp(interaction: Interaction, addamount: int, member: Member):
     await ge(interaction, addamount, member)
 
+
 @bot.tree.command(name="leaderboard", description="Leaderboard of levels")
 async def lb(interaction: Interaction):
     await leaderboard(interaction)
+
 
 @bot.event
 async def on_message(message: Message):
