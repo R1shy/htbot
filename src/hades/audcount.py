@@ -5,6 +5,7 @@ from discord.channel import ForumChannel
 
 
 async def audcount(interaction: Interaction):
+
     audchannelid = os.getenv("AUDCHANNELID") or "-1"
     guild = interaction.guild
     if guild is None:
