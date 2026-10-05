@@ -13,7 +13,6 @@ from hades.levels.givexp import ge
 from hades.levels.leaderboard import leaderboard
 from hades.levels.messagehandler import msghandler
 from hades.scrapejoin import sj
-from hades.allnames import an
 intents = Intents.all()
 bot = Bot(command_prefix="?", intents=intents)
 global botuser
@@ -81,9 +80,6 @@ async def givexp(interaction: Interaction, addamount: int, member: Member):
 async def lb(interaction: Interaction):
     await leaderboard(interaction)
 
-@bot.tree.command(name="getaudnames", description="Audition titles")
-async def audnames(interaction: Interaction):
-    await an(interaction)
 
 @bot.event
 async def on_message(message: Message):
