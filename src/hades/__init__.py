@@ -5,14 +5,16 @@ from discord import Intents, Interaction, Member, Message, Object
 from discord.ext.commands import Bot  # pyright: ignore
 
 from hades.audcount import audcount
+from hades.auditionscsv import auditions_csv
 from hades.evilfaq import evilfaq
 from hades.faq import faq
 from hades.globals import gcursor
-from hades.levels.getlevel import gl 
+from hades.levels.getlevel import gl
 from hades.levels.givexp import ge
 from hades.levels.leaderboard import leaderboard
 from hades.levels.messagehandler import msghandler
 from hades.scrapejoin import sj
+
 intents = Intents.all()
 bot = Bot(command_prefix="?", intents=intents)
 global botuser
@@ -54,6 +56,11 @@ async def scrape_joins(interaction: Interaction):
 @bot.tree.command(name="numberofauditions", description="get the number of auditions")
 async def ac(interaction: Interaction):
     await audcount(interaction)
+
+
+@bot.tree.command(name="auditionscsv", description="Export auditionees and roles to CSV, staff ONLY")
+async def audcsv(interaction: Interaction):
+    await auditions_csv(interaction)
 
 
 @bot.tree.command(name="faq", description="Frequently Asked Questions")
